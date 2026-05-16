@@ -1,0 +1,191 @@
+/* Reseteo y variables base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #0b0f19; /* Azul oscuro estilo Cinépolis/Cinemex */
+    color: #ffffff;
+}
+
+/* Barra de Navegación */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: #05080f;
+    border-bottom: 1px solid #1f2937;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #3b82f6; /* Azul acento */
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #a1a1aa;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover, .navbar ul li a.active {
+    color: #ffffff;
+}
+
+.btn-login {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 20px;
+    transition: all 0.3s;
+}
+
+.btn-login:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Banner Principal */
+.hero {
+    height: 300px;
+    background: linear-gradient(to right, rgba(11, 15, 25, 1) 10%, rgba(11, 15, 25, 0) 100%), 
+                url('https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop') center/cover;
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+}
+
+.hero-content h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+/* Contenedor Principal y Tabs */
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.tabs {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #1f2937;
+    padding-bottom: 10px;
+}
+
+.tabs .tab {
+    font-size: 20px;
+    color: #a1a1aa;
+    cursor: pointer;
+}
+
+.tabs .tab.active {
+    color: #ffffff;
+    border-bottom: 3px solid #3b82f6; /* Línea indicadora */
+    padding-bottom: 8px;
+}
+
+/* Grid de Películas */
+.grid-peliculas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 25px;
+}
+
+.movie-card {
+    background-color: #111827;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.movie-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.movie-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.movie-info {
+    padding: 15px;
+}
+
+.movie-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.movie-tags {
+    font-size: 12px;
+    color: #9ca3af;
+    margin-bottom: 15px;
+}
+
+.btn-comprar {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: #ef4444; /* Rojo estilo botón de compra */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-comprar:hover {
+    background-color: #dc2626;
+}
+
+.loading {
+    text-align: center;
+    grid-column: 1 / -1;
+    font-size: 18px;
+    color: #9ca3af;
+}
+
+/* Estilos para el filtro de ubicación */
+.select-ciudad {
+    background-color: #111827;
+    color: #ffffff;
+    border: 1px solid #3b82f6;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.select-ciudad:hover, .select-ciudad:focus {
+    border-color: #60a5fa;
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+}

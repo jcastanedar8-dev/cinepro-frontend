@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cine Profesional | Cartelera</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">🎥 CinePro</div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">Cartelera</a></li>
+                <li><a href="#">Preventas</a></li>
+                <li><a href="#">Dulcería</a></li>
+            </ul>
+        </nav>
+        <div class="user-menu">
+            <select id="filtro-ubicacion" class="select-ciudad">
+                            <span>📍 Seleccionar Ciudad</span>
+        </select>
+            <button class="btn-login">Iniciar Sesión</button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Descubre la Magia del Cine</h1>
+            <p>Los mejores estrenos y preventas exclusivas.</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="tabs">
+            <h2 class="tab active">En Cartelera</h2>
+            <h2 class="tab">Próximamente</h2>
+        </div>
+        
+        <div id="contenedor-peliculas" class="grid-peliculas">
+            <p class="loading">Cargando cartelera...</p>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
