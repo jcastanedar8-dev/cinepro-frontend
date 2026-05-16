@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Envolvemos la URL original en un proxy HTTPS seguro
-    const API_URL = 'https://api.codetabs.com/v1/proxy?quest=http://52.171.58.51:8080/api/cartelera';
+    //const API_URL = 'https://api.codetabs.com/v1/proxy?quest=http://52.171.58.51:8080/api/cartelera';
+
+    // Ahora consumiremos el archivo que vivirá junto a tu página web
+    const API_URL = './cartelera.json';
     const contenedorPeliculas = document.getElementById('contenedor-peliculas');
     const selectUbicacion = document.getElementById('filtro-ubicacion');
     
