@@ -2,8 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Envolvemos la URL original en un proxy HTTPS seguro
     const API_URL = 'https://api.codetabs.com/v1/proxy?quest=http://52.171.58.51:8080/api/cartelera';
 
-    // Ahora consumiremos el archivo que vivirá junto a tu página web
-    //const API_URL = './cartelera.json';
     const contenedorPeliculas = document.getElementById('contenedor-peliculas');
     const selectUbicacion = document.getElementById('filtro-ubicacion');
     
@@ -35,8 +33,31 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Nueva función: Extraer ubicaciones y llenar el menú desplegable
-    
+    // AQUI ESTA LA FUNCIÓN QUE FALTABA
+    function generarFiltros(peliculas) {
+        selectUbicacion.innerHTML = '';
+
+        const opcionTodas = document.createElement('option');
+        opcionTodas.value = 'todas';
+        opcionTodas.textContent = '📍 Todas las ubicaciones';
+        selectUbicacion.appendChild(opcionTodas);
+
+        const ubicacionesUnicas = new Set();
+
+        peliculas.forEach(pelicula => {
+            if (pelicula.Ubication) {
+                const ubiNormalizada = pelicula.Ubication.trim().toUpperCase();
+                ubicacionesUnicas.add(ubiNormalizada);
+            }
+        });
+
+        Array.from(ubicacionesUnicas).sort().forEach(ubicacion => {
+            const opcionHTML = document.createElement('option');
+            opcionHTML.value = ubicacion;
+            opcionHTML.textContent = ubicacion;
+            selectUbicacion.appendChild(opcionHTML);
+        });
+    }
 
     // Evento que escucha cada vez que el usuario cambia la opción en el select
     selectUbicacion.addEventListener('change', (evento) => {
