@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const API_URL = 'http://52.171.58.51:8080/api/cartelera';
+    // Envolvemos la URL original en un proxy HTTPS seguro
+    const API_URL = 'https://api.allorigins.win/raw?url=' + encodeURIComponent('http://52.171.58.51:8080/api/cartelera');
     const contenedorPeliculas = document.getElementById('contenedor-peliculas');
     const selectUbicacion = document.getElementById('filtro-ubicacion');
     
@@ -32,35 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Nueva función: Extraer ubicaciones y llenar el menú desplegable
-    // Nueva función: Extraer ubicaciones y llenar el menú desplegable
-    function generarFiltros(peliculas) {
-        // 1. Limpiamos cualquier opción previa que tuviera el select en el HTML
-        selectUbicacion.innerHTML = '';
-
-        // 2. Creamos y agregamos la opción de "Todas" por defecto al inicio
-        const opcionTodas = document.createElement('option');
-        opcionTodas.value = 'todas';
-        opcionTodas.textContent = '📍 Todas las ubicaciones';
-        selectUbicacion.appendChild(opcionTodas);
-
-        // 3. Utilizamos un Set para evitar ciudades duplicadas
-        const ubicacionesUnicas = new Set();
-
-        peliculas.forEach(pelicula => {
-            if (pelicula.Ubication) {
-                const ubiNormalizada = pelicula.Ubication.trim().toUpperCase();
-                ubicacionesUnicas.add(ubiNormalizada);
-            }
-        });
-
-        // 4. Convertimos el Set a Array, lo ordenamos y creamos las demás opciones
-        Array.from(ubicacionesUnicas).sort().forEach(ubicacion => {
-            const opcionHTML = document.createElement('option');
-            opcionHTML.value = ubicacion;
-            opcionHTML.textContent = ubicacion;
-            selectUbicacion.appendChild(opcionHTML);
-        });
-    }
+    
 
     // Evento que escucha cada vez que el usuario cambia la opción en el select
     selectUbicacion.addEventListener('change', (evento) => {
